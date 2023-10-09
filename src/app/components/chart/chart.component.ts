@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js/auto';
+import { MeteoService } from 'src/app/services/meteo.service';
 
 
 @Component({
@@ -9,7 +10,8 @@ import {Chart} from 'chart.js/auto';
 })
 export class ChartComponent implements OnInit {
   public chart: any;
-
+  constructor(private meteoServ: MeteoService){}
+  
   ngOnInit(): void {
     this.createChart();
   }
@@ -24,21 +26,21 @@ export class ChartComponent implements OnInit {
 								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
 	       datasets: [
           {
-            label: "Sales",
+            label: "Umidità",
             data: ['467','576', '572', '79', '92',
 								 '574', '573', '576'],
             backgroundColor: 'blue'
           },
           {
-            label: "Profit",
+            label: "Velocità del vento",
             data: ['542', '542', '536', '327', '17',
-									 '0.00', '538', '541'],
+									 '0.00', '538', '741'],
             backgroundColor: 'limegreen'
           }  
         ]
       },
       options: {
-        aspectRatio:2.5
+        aspectRatio:3
       }
       
     });
