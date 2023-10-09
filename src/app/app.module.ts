@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
 import { TableComponent } from './components/table/table.component';
 import { ChartComponent } from './components/chart/chart.component'
+import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,11 @@ import { ChartComponent } from './components/chart/chart.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgChartsModule
   ],
-  providers: [],
+  providers: [
+    { provide: NgChartsConfiguration, useValue: { generateColors: false }}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
